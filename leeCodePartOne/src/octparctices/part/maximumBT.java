@@ -1,4 +1,4 @@
-package partone;
+package octparctices.part;
 
 /*
  *
@@ -101,6 +101,8 @@ public class maximumBT {
             }
             int MaxVal = 0;
             int index = 0;
+            int left[] = null;
+            int right[] = null;
             for (int i = 0; i < nums.length; i++) {
                 if (MaxVal < nums[i]) {
                     MaxVal = nums[i];
@@ -108,20 +110,10 @@ public class maximumBT {
                 }
             }
             TreeNode t = new TreeNode(MaxVal);
-            int left[] = null;
-            if (index != 0) {
-                left = new int[index];
-                for (int j = 0; j < left.length; j++) {
-                    left[j] = nums[j];
-                }
-            }
-            int right[] = null;
-            if (index != nums.length - 1) {
-                right = new int[nums.length - index - 1];
-                for (int j = index + 1; j < nums.length; j++) {
-                    right[j - index - 1] = nums[j];
-                }
-            }
+            if (index != 0)
+                left = Arrays.copyOfRange(nums, 0, index);
+            if (index != nums.length - 1)
+                right = Arrays.copyOfRange(nums, index + 1, nums.length);
             t.left = constructMaximumBinaryTree(left);
             t.right = constructMaximumBinaryTree(right);
             return t;
