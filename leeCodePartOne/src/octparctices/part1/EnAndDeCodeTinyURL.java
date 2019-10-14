@@ -1,4 +1,5 @@
-package octparctices.part;
+package octparctices.part1;
+
 
 /*
  *
@@ -26,24 +27,14 @@ public class EnAndDeCodeTinyURL {
 
         // Encodes a URL to a shortened URL.
         public String encode(String longUrl) {
-            longUrl = "http://tinyurl.com/" + longUrl;
-            char url[] = longUrl.toCharArray();
-            for (int i = 0; i < url.length; i++) {
-                url[i] = (char) (url[i] + 1);
-            }
-            return new String(url);
+            return null;
         }
 
         // Decodes a shortened URL to its original URL.
         public String decode(String shortUrl) {
-            char url[] = shortUrl.toCharArray();
-            for (int i = 0; i < url.length; i++) {
-                url[i] = (char) (url[i] - 1);
-            }
-            return new String(url).substring("http://tinyurl.com/".length() + 1);
+            return null;
         }
     }
-
 
 
 // Your Codec object will be instantiated and called as such:
