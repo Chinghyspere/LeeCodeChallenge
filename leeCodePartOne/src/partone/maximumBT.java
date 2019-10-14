@@ -9,6 +9,8 @@ package partone;
  */
 
 
+import java.util.Arrays;
+
 public class maximumBT {
     /**Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
 
@@ -71,21 +73,73 @@ public class maximumBT {
      * TreeNode(int x) { val = x; }
      * }
      */
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode(int x) { val = x; }
+     * }
+     */
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode(int x) { val = x; }
+     * }
+     */
     class Solution {
         public TreeNode constructMaximumBinaryTree(int[] nums) {
-            return null;
-        }
-
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
+            if (nums == null) {
+                return null;
             }
+            if (nums.length == 1) {
+                return new TreeNode(nums[0]);
+            }
+            int MaxVal = 0;
+            int index = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (MaxVal < nums[i]) {
+                    MaxVal = nums[i];
+                    index = i;
+                }
+            }
+            TreeNode t = new TreeNode(MaxVal);
+            int left[] = null;
+            if (index != 0) {
+                left = new int[index];
+                for (int j = 0; j < left.length; j++) {
+                    left[j] = nums[j];
+                }
+            }
+            int right[] = null;
+            if (index != nums.length - 1) {
+                right = new int[nums.length - index - 1];
+                for (int j = index + 1; j < nums.length; j++) {
+                    right[j - index - 1] = nums[j];
+                }
+            }
+            t.left = constructMaximumBinaryTree(left);
+            t.right = constructMaximumBinaryTree(right);
+            return t;
         }
     }
 
 
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        public TreeNode(int x) {
+            this.val = x;
+        }
+    }
+
 }
+
+
+

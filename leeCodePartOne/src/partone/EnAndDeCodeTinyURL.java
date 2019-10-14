@@ -22,20 +22,29 @@ public class EnAndDeCodeTinyURL {
      */
 
 
-
-
     public class Codec {
 
         // Encodes a URL to a shortened URL.
         public String encode(String longUrl) {
-            return null;
+            longUrl = "http://tinyurl.com/" + longUrl;
+            char url[] = longUrl.toCharArray();
+            for (int i = 0; i < url.length; i++) {
+                url[i] = (char) (url[i] + 1);
+            }
+            return new String(url);
         }
 
         // Decodes a shortened URL to its original URL.
         public String decode(String shortUrl) {
-            return null;
+            char url[] = shortUrl.toCharArray();
+            for (int i = 0; i < url.length; i++) {
+                url[i] = (char) (url[i] - 1);
+            }
+            return new String(url).substring("http://tinyurl.com/".length() + 1);
         }
     }
+
+
 
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
