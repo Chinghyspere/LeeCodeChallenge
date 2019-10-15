@@ -93,30 +93,7 @@ public class maximumBT {
      */
     class Solution {
         public TreeNode constructMaximumBinaryTree(int[] nums) {
-            if (nums == null) {
-                return null;
-            }
-            if (nums.length == 1) {
-                return new TreeNode(nums[0]);
-            }
-            int MaxVal = 0;
-            int index = 0;
-            int left[] = null;
-            int right[] = null;
-            for (int i = 0; i < nums.length; i++) {
-                if (MaxVal < nums[i]) {
-                    MaxVal = nums[i];
-                    index = i;
-                }
-            }
-            TreeNode t = new TreeNode(MaxVal);
-            if (index != 0)
-                left = Arrays.copyOfRange(nums, 0, index);
-            if (index != nums.length - 1)
-                right = Arrays.copyOfRange(nums, index + 1, nums.length);
-            t.left = constructMaximumBinaryTree(left);
-            t.right = constructMaximumBinaryTree(right);
-            return t;
+            return null;
         }
     }
 
