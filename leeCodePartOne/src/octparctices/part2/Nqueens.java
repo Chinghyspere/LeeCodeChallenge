@@ -53,6 +53,7 @@ public class Nqueens {
      * @return
      */
     public List<List<String>> solveNQueens(int n) {
+        
         return null;
     }
 
