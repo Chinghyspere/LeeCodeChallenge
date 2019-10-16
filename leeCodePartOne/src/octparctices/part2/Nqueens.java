@@ -15,6 +15,37 @@ import java.util.Stack;
 import java.util.stream.Collectors;
 
 public class Nqueens {
+    /**n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
+
+
+
+     上图为 8 皇后问题的一种解法。
+
+     给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。
+
+     每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 'Q' 和 '.' 分别代表了皇后和空位。
+
+     示例:
+
+     输入: 4
+     输出: [
+     [".Q..",  // 解法 1
+     "...Q",
+     "Q...",
+     "..Q."],
+
+     ["..Q.",  // 解法 2
+     "Q...",
+     "...Q",
+     ".Q.."]
+     ]
+     解释: 4 皇后问题存在两个不同的解法。
+
+     来源：力扣（LeetCode）
+     链接：https://leetcode-cn.com/problems/n-queens
+     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
+
     /**
      * 根据逻辑回溯法解决，动态维护链表
      *
@@ -22,28 +53,7 @@ public class Nqueens {
      * @return
      */
     public List<List<String>> solveNQueens(int n) {
-        char[][] queens = new char[n][n];
-        char empty = '\u0000';
-        int i = 0, j = 0;
-        List<List<String>> answer = new ArrayList<>();
-        Stack stack = new Stack();
-        List<char[][]> result = new ArrayList<>();
-        finishResult(result, stack, i, j, queens);
-        result.forEach(qu -> {
-            List<String> value = new ArrayList<>();
-            value = Arrays.stream(qu).map(Arrays::toString).collect(Collectors.toList());
-            answer.add(value);
-        });
         return null;
-    }
-
-    private void finishResult(List<char[][]> expectArray, Stack stack, int i, int j, char[][] oldArray) {
-        char[][] newArrays = Arrays.copyOf(oldArray, oldArray.length);
-    }
-
-    public static void main(String[] args) {
-        char[][] queens = new char[1][1];
-        System.out.println(queens[0][0] == '\u0000');
     }
 
 
