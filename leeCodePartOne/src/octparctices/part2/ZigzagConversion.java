@@ -77,29 +77,7 @@ public class ZigzagConversion {
 //            0,(numRows-1)*2,(numRows-1)*2*2
 //            1,(numRows-1)*2-1 ,(numRows-1)*2+1,(numRows-1)*2*2-1,(numRows-1)*2*2+1
 //            2,
-            if(s.length()<=numRows||numRows==1)
-                return s;
-            int index = 0;
-            int fin = (numRows - 1) * 2;
-            StringBuilder resultString = new StringBuilder("");
-            for (; index < numRows; index++) {
-                resultString.append(s.charAt(index));
-                for (int i = 1; i <s.length(); i++) {
-                    if (index == 0 || index == (numRows - 1)) {
-                        if (fin * i+index > s.length()-1)
-                            break;
-                        resultString.append(s.charAt(fin * i + index));
-                    } else {
-                        if (fin * i - index < s.length())
-                            resultString.append(s.charAt(fin * i - index));
-                        if (fin * i + index < s.length())
-                            resultString.append(s.charAt(fin * i + index));
-                        if (fin * i > s.length())
-                            break;
-                    }
-                }
-            }
-            return resultString.toString();
+            return null;
         }
     }
 

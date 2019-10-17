@@ -15,8 +15,8 @@ public class maximumBT {
     /**Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
 
      The root is the maximum number in the array.
-     The left subtree is the maximum tree constructed from left part subarray divided by the maximum number.
-     The right subtree is the maximum tree constructed from right part subarray divided by the maximum number.
+     The left subtree is the maximum tree constructed from left part1 subarray divided by the maximum number.
+     The right subtree is the maximum tree constructed from right part1 subarray divided by the maximum number.
      Construct the maximum tree by the given array and output the root node of this tree.
 
      Example 1:
@@ -73,45 +73,42 @@ public class maximumBT {
      * TreeNode(int x) { val = x; }
      * }
      */
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode(int x) { val = x; }
+     * }
+     */
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode(int x) { val = x; }
+     * }
+     */
     class Solution {
         public TreeNode constructMaximumBinaryTree(int[] nums) {
-            if (nums == null) {
-                return null;
-            }
-            if (nums.length == 1) {
-                return new TreeNode(nums[0]);
-            }
-            int MaxVal = 0;
-            int index = 0;
-            int left[] = null;
-            int right[] = null;
-            for (int i = 0; i < nums.length; i++) {
-                if (MaxVal < nums[i]) {
-                    MaxVal = nums[i];
-                    index = i;
-                }
-            }
-            TreeNode t = new TreeNode(MaxVal);
-            if (index != 0)
-                left = Arrays.copyOfRange(nums, 0, index);
-            if (index != nums.length - 1)
-                right = Arrays.copyOfRange(nums, index + 1, nums.length);
-            t.left = constructMaximumBinaryTree(left);
-            t.right = constructMaximumBinaryTree(right);
-            return t;
-        }
-
-
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-
-            TreeNode(int x) {
-                val = x;
-            }
+            return null;
         }
     }
 
 
+    private class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        public TreeNode(int x) {
+            this.val = x;
+        }
+    }
+
 }
+
+
+

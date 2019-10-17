@@ -1,5 +1,6 @@
 package octparctices.part1;
 
+
 /*
  *
  *     @author Qmh
@@ -22,8 +23,6 @@ public class EnAndDeCodeTinyURL {
      */
 
 
-
-
     public class Codec {
 
         // Encodes a URL to a shortened URL.
@@ -36,6 +35,7 @@ public class EnAndDeCodeTinyURL {
             return null;
         }
     }
+
 
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
