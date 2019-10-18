@@ -46,16 +46,64 @@ public class Nqueens {
 
 
     public List<List<String>> solveNQueens(int n) {
-        List<List<String>> list = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            list.add(checkAndSet(i, new Stack(), new ArrayList<>()));
+        List<List<String>> result = new ArrayList<>();
+
+        int[] queen = new int[n];
+        search(0, n, queen, result);
+
+        return result;
+    }
+
+    private void search(int start, int n, int[] queen, List<List<String>> result) {
+        if (n == 0) {
+            int2List(queen, result);
+            return;
         }
-        return list;
+
+        for (int i = 0; i < queen.length; i++) {
+            queen[start] = i;
+            boolean flag = true;
+            for (int j = 0; j < start; j++) {
+                if (checkIsNotMatch(start, j, queen)) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                search(start + 1, n - 1, queen, result);
+            }
+        }
     }
 
-    private List<String> checkAndSet(int i, Stack stack, List valueList) {
-        stack.push(i);
-        return null;
+    private void int2List(int[] queen, List<List<String>> result) {
+        List<String> list = new ArrayList<String>();
+
+        for (int i = 0; i < queen.length; i++) {
+            int num = queen[i];
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int j = 0; j < queen.length; j++) {
+                if (num == j) {
+                    stringBuilder.append("Q");
+                } else {
+                    stringBuilder.append(".");
+                }
+            }
+            list.add(stringBuilder.toString());
+        }
+
+        result.add(list);
     }
 
+    private boolean checkIsNotMatch(int i, int j, int[] queen) {
+        if (queen[i] == queen[j] || Math.abs(i - j) == Math.abs(queen[i] - queen[j])) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Nqueens().solveNQueens(4));
+    }
 }
